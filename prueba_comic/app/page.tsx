@@ -6,12 +6,12 @@ const img_index = 1
 export default function Home(){
   const [currentSlide, setCurrentSlide] = React.useState(1)
   const comic_len = 3
-  const nextSlide = (e) => {
+  const nextSlide = (e: React.MouseEvent<HTMLButtonElement>) => {
     setCurrentSlide((prev) => {
       return prev === comic_len ? 1 : currentSlide + 1;
     });
   }
-  const prevSlide = (e) => {
+  const prevSlide = (e: React.MouseEvent<HTMLButtonElement>) => {
     setCurrentSlide((prev) => {
       return prev === 1 ? comic_len : currentSlide - 1;
     });
