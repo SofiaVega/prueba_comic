@@ -10,7 +10,7 @@ export function ComicViewer(){
     const pathname = usePathname()
     const searchParams = useSearchParams()
     const pagina = searchParams.get("pagina")
-    const comic_len = 3
+    const comic_len = 4
 
 
 
