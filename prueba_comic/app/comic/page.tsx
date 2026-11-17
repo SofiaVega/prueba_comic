@@ -5,7 +5,7 @@ import { usePathname, useSearchParams, useRouter } from 'next/navigation'
 import {  ChevronRight, ChevronLeft } from 'lucide-react';
 import NavBar from "./navBar";
 
-export default function Home(){
+export function ComicViewer(){
     const router = useRouter()
     const pathname = usePathname()
     const searchParams = useSearchParams()
@@ -39,12 +39,11 @@ export default function Home(){
         }
         
     }
-    return (
-        <div className="flex flex-col flex-1 items-center justify-start bg-zinc-50 font-sans dark:bg-black">
-            <h1 style={{ fontSize: '48px', fontWeight: 'bold' }}> Titulo </h1>
-            <NavBar/>
-            <Suspense fallback={<p>Loading...</p>}>
-                <div>
+    
+
+    return(
+        <>
+        <div>
                     <button onClick={prevParam}><ChevronLeft/></button>
                     <button onClick={nextParam}><ChevronRight/>  </button>
                 </div>
@@ -53,6 +52,19 @@ export default function Home(){
                     <button onClick={prevParam}><ChevronLeft/></button>
                     <button onClick={nextParam}><ChevronRight/>  </button>
                 </div>
+        </>
+    )
+
+}
+
+export default function Home(){
+    
+    return (
+        <div className="flex flex-col flex-1 items-center justify-start bg-zinc-50 font-sans dark:bg-black">
+            <h1 style={{ fontSize: '48px', fontWeight: 'bold' }}> Titulo </h1>
+            <NavBar/>
+            <Suspense fallback={<p>Loading...</p>}>
+                <ComicViewer/>
             </Suspense>
         </div>
     )
